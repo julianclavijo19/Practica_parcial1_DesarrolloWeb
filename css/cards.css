@@ -1,29 +1,50 @@
+/*
+  Archivo: cards.css
+  Propósito: Estilos de tarjetas reutilizables (servicios, barberos) y contenedores.
+*/
+
+/*
+  Contenedor de tarjetas con grid fluido
+  - auto-fit + minmax permite que el número de columnas se adapte al ancho disponible.
+*/
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 1.5rem;
 }
 
+/* Tarjetas base para servicios y barberos con efecto hover sutil. */
 .service-card, .barber-card {
     background-color: var(--white-color);
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     overflow: hidden;
+    /*
+      Transiciones de transform y sombra:
+      - transform: translateY(-5px) en :hover mueve la tarjeta ligeramente hacia arriba.
+      - box-shadow más grande en :hover da la ilusión de que la tarjeta "se eleva".
+      - La combinación produce una animación fluida al pasar el cursor.
+    */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
 }
 
+/*
+  Host de <product-card> cuando se integra en sliders: fijamos ancho y evitamos que se encoja.
+*/
 product-card {
     flex-shrink: 0;
     width: 340px;
 }
 
+/* Efecto hover compartido para dar sensación de elevación. */
 .service-card:hover, .barber-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
+/* Contenido interno con separación vertical consistente. */
 .card-content {
     padding: 30px 20px;
     display: flex;
@@ -33,18 +54,21 @@ product-card {
     gap: 1rem;
 }
 
+/* Descripción de servicios con color atenuado y crecimiento para empujar el botón al fondo. */
 .service-card .description {
     flex-grow: 1;
     font-size: 0.9rem;
     color: #777;
 }
 
+/* Imágenes de tarjetas: total ancho y altura fija para uniformidad. */
 .service-card img, .barber-card img {
     width: 100%;
     height: 220px;
     object-fit: cover;
 }
 
+/* Estilo especial para la foto del barbero en formato circular y centrado. */
 .barber-card img {
     height: 280px;
     border-radius: 50%;
@@ -53,11 +77,13 @@ product-card {
     object-position: top;
 }
 
+/* Títulos de tarjeta con tipografía de encabezado. */
 .service-card h3, .barber-card h3 {
     font: 1.5rem var(--font-heading);
     margin: 0 0 0.5rem 0;
 }
 
+/* Precio con color de acento (solo en servicios). */
 .service-card .price {
     font-size: 1.2rem;
     font-weight: 500;
@@ -65,6 +91,7 @@ product-card {
     margin-bottom: 1rem;
 }
 
+/* Botones de acción: selección de servicio y barbero. */
 .btn-select, .btn-select-barber {
     width: 100%;
     margin-top: auto;
@@ -77,8 +104,10 @@ product-card {
     transition: background-color 0.3s ease;
 }
 
+/* Estado hover de botones principales. */
 .btn-select:hover, .btn-select-barber:hover { background-color: #333; }
 
+/* Botón secundario reutilizable (enlaces con estilo de botón). */
 .btn-secondary {
     background-color: var(--secondary-color);
     color: var(--white-color);

@@ -1,45 +1,80 @@
+/*
+  Archivo: base.css
+  Propósito: Estilos globales y variables del tema. Define tipografías, colores,
+  reset básico y contenedores principales compartidos en todo el sitio.
+*/
+
+/*
+  Variables CSS (Custom Properties)
+  - Facilitan mantener consistencia de colores y tipografías.
+  - Se pueden reutilizar en cualquier archivo CSS con var(--nombre).
+*/
 :root {
-    --primary-color: #1a1a1a;
-    --secondary-color: #c5a47e;
-    --background-color: #f4f4f4;
-    --text-color: #333;
-    --white-color: #fff;
-    --error-color: #d93025;
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Montserrat', sans-serif;
+    --primary-color: #1a1a1a;           /* Color principal (textos/botones) */
+    --secondary-color: #c5a47e;         /* Color de acento (bordes/detalles) */
+    --background-color: #f4f4f4;        /* Fondo general del sitio */
+    --text-color: #333;                 /* Color base de los textos */
+    --white-color: #fff;                /* Blanco base para tarjetas/barra */
+    --error-color: #d93025;             /* Mensajes de error o estados críticos */
+    --font-heading: 'Playfair Display', serif; /* Tipografía para títulos */
+    --font-body: 'Montserrat', sans-serif;     /* Tipografía para textos */
 }
 
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Incluye padding/border dentro del width/height */
 }
 
+/*
+  Comportamiento de scroll global
+  - Permite desplazamiento suave al usar anclas o scroll programático.
+*/
 html {
     scroll-behavior: smooth;
 }
 
+/* Estilos base del body */
 body {
     font-family: var(--font-body);
     background-color: var(--background-color);
     color: var(--text-color);
 }
 
+/*
+  Contenido principal
+  - La clase .main-container inicia desplazada hacia abajo (100vh) y
+    se regresa a 0 cuando se agrega .show-content (ver js/animations.js).
+  - Este patrón crea la animación de "subida" del contenido al pasar el banner:
+      1) Estado inicial: margin-top: 100vh (contenido empieza fuera de la vista, debajo del banner).
+      2) Al cumplir el umbral de scroll, JS añade .show-content.
+      3) .show-content establece margin-top: 0; la transición aplicada a margin-top
+         provoca el deslizamiento suave hacia arriba.
+*/
 .main-container {
-    margin-top: 100vh;
+    margin-top: 100vh;              /* Empuja el contenido por debajo del banner full height (100% del alto de la ventana) */
     position: relative;
     z-index: 1;
-    transition: margin-top 0.8s ease-out;
+    transition: margin-top 0.8s ease-out; /* Transición suave al mostrar el contenido */
 }
 
+/* Estado cuando se muestra el contenido principal tras el scroll */
 .main-container.show-content { margin-top: 0; }
 
+/*
+  Contenedor principal del contenido (máximo ancho y centrado)
+*/
 #main-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
 
+/*
+  Pie de página (contenedor insertado dinámicamente)
+  - Colores neutros y tipografía más pequeña.
+*/
 #footer-container {
     text-align: center;
     padding: 1.5rem;
@@ -49,17 +84,23 @@ body {
     color: #888;
 }
 
+/* Separación estándar entre secciones de contenido */
 .content-section { margin-bottom: 3rem; }
 
+/* Títulos de secciones: tipografía, subrayado decorativo y centrado */
 .content-section h2 {
     font: 2.2rem var(--font-heading);
     margin: 0 auto 1.5rem;
     border-bottom: 2px solid var(--secondary-color);
     padding-bottom: 0.5rem;
     text-align: center;
-    width: fit-content;
+    width: fit-content; /* Ancho ajustado al contenido del título */
 }
 
+/*
+  Botón flotante de WhatsApp
+  - Posición fija en la esquina inferior derecha con sombra sutil.
+*/
 .whatsapp-float {
     position: fixed;
     bottom: 60px;
@@ -73,9 +114,10 @@ body {
     justify-content: center;
 }
 
+/* Ajustes de la imagen dentro del botón flotante */
 .whatsapp-float img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: cover; /* Recorta/ajusta para ocupar todo el círculo */
 }

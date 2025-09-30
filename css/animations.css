@@ -1,17 +1,38 @@
-@keyframes fadeIn { 
-    from { opacity: 0; transform: translateY(20px); } 
-    to { opacity: 1; transform: translateY(0); } 
+/*
+  Archivo: animations.css
+  Propósito: Keyframes y clases utilitarias de animación reutilizables en el sitio.
+  Relación con JS: js/animations.js añade o quita .fade-in y .fade-out según el flujo.
+*/
+
+/*
+  Animación de entrada: el contenido aparece desplazado ligeramente hacia abajo y
+  gana opacidad hasta estar completamente visible.
+*/
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeOut { 
-    from { opacity: 1; } 
-    to { opacity: 0; } 
+/*
+  Animación de salida: atenúa la opacidad hasta ocultar el elemento.
+*/
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
-.fade-in { 
-    animation: fadeIn 0.8s ease-out forwards; 
+/*
+  Clase utilitaria para aplicar la animación de entrada al contenido principal
+  cuando carga la página o una sección específica.
+*/
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
 }
 
-.fade-out { 
-    animation: fadeOut 0.5s ease-out forwards; 
+/*
+  Clase utilitaria para aplicar la animación de salida antes de navegar a otra página
+  o al ocultar secciones.
+*/
+.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
 }

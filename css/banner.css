@@ -1,7 +1,16 @@
+/*
+  Archivo: banner.css
+  Propósito: Estilos del banner principal a pantalla completa y su contenido.
+*/
+
+/* Asegura que el banner quede por encima del contenido inicial al cargar (coordinado con main). */
 #banner-section-container { z-index: 2; }
 
+/*
+  Banner a altura completa de la ventana. Centra su contenido y permite imagen de fondo.
+*/
 .banner {
-    height: 100vh;
+    height: 100vh;                 /* Ocupa alto total de la ventana */
     position: relative;
     background-size: cover;
     background-position: center;
@@ -12,6 +21,7 @@
     color: var(--white-color);
 }
 
+/* Capa oscura encima del fondo para mejorar legibilidad del texto. */
 .banner-content {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 2rem 3rem;
@@ -19,20 +29,27 @@
     max-width: 800px;
 }
 
+/*
+  Título principal del banner con transición para poder encogerlo al hacer scroll.
+*/
 .banner h2 {
     font: 4rem var(--font-heading);
     transition: all 0.4s ease-out;
 }
 
+/*
+  Estado "encogido": el título pasa a fijo y pequeño cuando se activa (coordinado desde JS/CSS).
+*/
 .banner h2.shrunk {
     font-size: 1.8rem;
     position: fixed;
     top: 1rem;
     left: 2rem;
     transform: none;
-    z-index: 1001;
+    z-index: 1001; /* Encima del header si es necesario */
 }
 
+/* Imagen de fondo del banner colocada detrás del contenido. */
 .banner-image {
     width: 100%;
     height: 100%;

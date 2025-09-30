@@ -1,6 +1,12 @@
+<!--
+  Sección: Reserva tu Cita
+  Propósito: Recoger datos del usuario para agendar una reserva, mostrando el corte y barbero seleccionados.
+  Notas: Los campos de corte y barbero son de solo lectura y se completan al seleccionar en otras secciones.
+-->
 <section id="reservas" class="content-section">
     <h2>Reserva tu Cita</h2>
     <form id="reservation-form" class="reservation-form">
+        <!-- Datos personales -->
         <div class="form-group">
             <label for="name">Nombre</label>
             <input type="text" id="name" required>
@@ -9,6 +15,7 @@
             <label for="contact-number">Número de Contacto</label>
             <input type="number" id="contact-number" required>
         </div>
+        <!-- Fecha y hora de la cita -->
         <div class="form-group">
             <label for="date">Fecha</label>
             <input type="date" id="date" required>
@@ -17,6 +24,7 @@
             <label for="time">Hora</label>
             <input type="time" id="time" required>
         </div>
+        <!-- Selecciones provenientes de otras secciones (readonly) -->
         <div class="form-group">
             <label for="cut-selection">Corte</label>
             <input type="text" id="cut-selection" readonly>
@@ -25,6 +33,7 @@
             <label for="barber-selection">Barbero</label>
             <input type="text" id="barber-selection" readonly>
         </div>
+        <!-- Acciones del formulario -->
         <button type="submit" class="btn-primary">Confirmar Reserva</button>
         <button type="button" id="clear-selection-btn" class="btn-clear">Limpiar Selección</button>
     </form>

@@ -1,9 +1,15 @@
+<!--
+  Sección: Productos Destacados
+  Propósito: Mostrar productos cargados dinámicamente desde data/productos.json como <product-card>.
+  Notas: El carrusel se controla con JS (js/products.js) y CSS (css/carousel.css).
+-->
 <section id="productos" class="content-section">
     <h2>Productos Destacados</h2>
     <div class="carousel-container">
+        <!-- Flechas del carrusel -->
         <button class="carousel-arrow left-arrow">&lt;</button>
         <button class="carousel-arrow right-arrow">&gt;</button>
-        <div id="product-list" class="card-container">
-        
+        <!-- Contenedor donde se insertan las tarjetas de producto -->
+        <div id="product-list" class="card-container"></div>
     </div>
 </section>

@@ -1,10 +1,18 @@
+<!--
+  Componente: Header
+  Propósito: Mostrar el logo y la navegación principal del sitio.
+  Notas: Este fragmento se inyecta en #header-container por js/componentLoader.js.
+-->
 <div class="header-content">
     <h1 class="logo">Barbería El Estilo</h1>
     <nav>
+        <!-- Enlaces a secciones dentro de index.html -->
         <a href="#cortes">Cortes</a>
         <a href="#productos">Productos</a>
         <a href="#barberos">Barberos</a>
+        <!-- Enlace a la página de login. js/animations.js aplicará transici��n de salida si corresponde. -->
         <a href="login.html" id="login-link">Iniciar Sesión</a>
+        <!-- CTA rápido hacia la sección de reservas -->
         <a href="#reservas" class="btn-secondary">Reservar</a>
     </nav>
 </div>

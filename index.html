@@ -4,34 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barbería El Estilo</title>
+
+    <!-- Fuentes de Google: títulos (Playfair Display) y cuerpo (Montserrat) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/banner.css">
-    <link rel="stylesheet" href="css/cards.css">
-    <link rel="stylesheet" href="css/carousel.css">
-    <link rel="stylesheet" href="css/forms.css">
-    <link rel="stylesheet" href="css/animations.css">
+
+    <!-- Hojas de estilo globales y por sección/componente -->
+    <link rel="stylesheet" href="css/base.css"><!-- Variables, reset y layout global -->
+    <link rel="stylesheet" href="css/header.css"><!-- Header sticky y navegación -->
+    <link rel="stylesheet" href="css/banner.css"><!-- Banner a pantalla completa -->
+    <link rel="stylesheet" href="css/cards.css"><!-- Tarjetas de servicios y barberos -->
+    <link rel="stylesheet" href="css/carousel.css"><!-- Carrusel de productos -->
+    <link rel="stylesheet" href="css/forms.css"><!-- Formulario de reservas -->
+    <link rel="stylesheet" href="css/animations.css"><!-- Clases de animación utilitarias -->
 </head>
 <body>
 
+    <!-- Contenedor donde se inyecta dinámicamente el header (components/header.html) -->
     <header id="header-container"></header>
 
+    <!-- Contenedor donde se inyecta el banner (components/sections/banner.html) -->
     <div id="banner-section-container"></div>
+
+    <!--
+      main-container controla la animación de revelado del contenido principal (ver js/animations.js).
+      Dentro de #main-content se insertan las secciones dinámicamente.
+    -->
     <div class="main-container">
         <main id="main-content">
+            <!-- Sección de cortes/servicios -->
             <div id="cortes-section-container"></div>
+            <!-- Sección de productos (contiene carrusel y lista de <product-card>) -->
             <div id="productos-section-container"></div>
+            <!-- Sección de barberos -->
             <div id="barberos-section-container"></div>
+            <!-- Sección de reservas (formulario) -->
             <div id="reservas-section-container"></div>
         </main>
     </div>
 
+    <!-- Contenedor donde se inyecta dinámicamente el footer (components/footer.html) -->
     <footer id="footer-container"></footer>
 
+    <!-- Script principal en modo módulo: inicializa página según el DOM presente -->
     <script src="js/main.js" type="module"></script>
-    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank"><img src="images/whatsapp/WhatsApp.png" alt="WhatsApp"></a>
+
+    <!-- Enlace flotante a WhatsApp -->
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">
+        <img src="images/whatsapp/WhatsApp.png" alt="WhatsApp">
+    </a>
 </body>
 </html>

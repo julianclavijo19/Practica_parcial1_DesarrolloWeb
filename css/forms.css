@@ -1,3 +1,9 @@
+/*
+  Archivo: forms.css
+  Propósito: Estilos del formulario de reservas y sus controles.
+*/
+
+/* Tarjeta del formulario centrada y con sombra suave. */
 .reservation-form {
     background-color: var(--white-color);
     padding: 2rem;
@@ -7,14 +13,17 @@
     margin: 0 auto;
 }
 
+/* Espaciado vertical entre grupos de controles. */
 .form-group { margin-bottom: 1.5rem; }
 
+/* Etiquetas de los inputs. */
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
+/* Campos de texto base. */
 .form-group input {
     width: 100%;
     padding: 12px;
@@ -23,16 +32,19 @@
     font-size: 1rem;
 }
 
+/* Estado de enfoque con borde de color secundario. */
 .form-group input:focus {
     outline: none;
     border-color: var(--secondary-color);
 }
 
+/* Campos de solo lectura con fondo atenuado y cursor desactivado. */
 .form-group input[readonly] {
     background-color: #f9f9f9;
     cursor: not-allowed;
 }
 
+/* Botón principal de envío del formulario. */
 .reservation-form .btn-primary {
     width: 100%;
     padding: 15px;
@@ -46,4 +58,5 @@
     transition: background-color 0.3s ease;
 }
 
+/* Estado hover del botón de envío. */
 .reservation-form .btn-primary:hover { background-color: #333; }

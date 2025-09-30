@@ -1,3 +1,9 @@
+/*
+  Archivo: carousel.css
+  Propósito: Estilos para el carrusel de productos (scroll horizontal + flechas).
+*/
+
+/* Contenedor del carrusel: posiciona flechas a los laterales y centra verticalmente. */
 #productos .carousel-container {
     position: relative;
     display: flex;
@@ -5,18 +11,25 @@
     padding: 0 40px;
 }
 
+/*
+  Contenedor de tarjetas desplazable horizontalmente.
+  - scroll-behavior: smooth habilita desplazamiento suave (también controlado por JS).
+  - Se oculta la barra de scroll para una UI más limpia.
+*/
 #productos .carousel-container .card-container {
     display: flex;
     overflow-x: scroll;
     scroll-behavior: smooth;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE/Edge antiguo */
     gap: 1.5rem;
     padding-bottom: 1rem;
 }
 
+/* Oculta scrollbar en navegadores WebKit (Chrome/Safari/Edge moderno). */
 #productos .carousel-container .card-container::-webkit-scrollbar { display: none; }
 
+/* Flechas de navegación del carrusel. */
 #productos .carousel-arrow {
     background-color: rgba(0, 0, 0, 0.5);
     color: var(--white-color);
@@ -37,6 +50,8 @@
     transition: background-color 0.3s ease;
 }
 
+/* Hover para dar feedback al usuario. */
 #productos .carousel-arrow:hover { background-color: rgba(0, 0, 0, 0.8); }
+/* Posicionamiento de cada flecha. */
 #productos .left-arrow { left: 0; }
 #productos .right-arrow { right: 0; }

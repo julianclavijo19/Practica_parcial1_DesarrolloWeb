@@ -1,17 +1,25 @@
+/*
+  Archivo: header.css
+  Propósito: Estilos del encabezado principal (sticky) y su contenido (logo + navegación).
+*/
+
+/* Contenedor del header pegado al top con sombra sutil y alto z-index. */
 #header-container {
     background-color: var(--primary-color);
     color: var(--white-color);
     padding: 1rem 2rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
+    position: sticky; /* Permanece visible al hacer scroll */
     top: 0;
-    z-index: 1000;
+    z-index: 1000; /* Asegura que quede por encima del contenido/banners */
 }
 
+/* Estado opcional para asegurar visibilidad (si se usaran transiciones) */
 #header-container.header-visible {
     transform: translateY(0);
 }
 
+/* Distribución interna: logo a la izquierda y navegación a la derecha. */
 .header-content {
     display: flex;
     justify-content: space-between;
@@ -20,15 +28,18 @@
     margin: 0 auto;
 }
 
+/* Título/Logo con transición de opacidad (usado cuando el banner reacomoda el título). */
 .logo {
     font: 1.8rem var(--font-heading);
     transition: opacity 0.3s ease;
 }
 
+/* Cuando el título se encoge/oculta (coordinación con el banner). */
 #header-container.title-shrunk .logo {
     opacity: 0;
 }
 
+/* Estilos base de los enlaces de navegación. */
 #header-container nav a {
     color: var(--white-color);
     text-decoration: none;
@@ -36,10 +47,12 @@
     transition: color 0.3s ease;
 }
 
+/* Estado hover con color de acento. */
 #header-container nav a:hover {
     color: var(--secondary-color);
 }
 
+/* Resaltado especial para el enlace de login. */
 #header-container nav #login-link {
     border-bottom: 1px solid var(--white-color);
     padding-bottom: 2px;
